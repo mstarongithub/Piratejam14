@@ -1,0 +1,3 @@
+- Merchant group spreading across the continent
+- Cultmaster
+- Dungeon core tasked to extend at any cost
