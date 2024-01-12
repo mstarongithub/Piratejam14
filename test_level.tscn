@@ -1,5 +1,11 @@
-[gd_scene format=3 uid="uid://yh2ndh02s2uu"]
+[gd_scene load_steps=2 format=3 uid="uid://yh2ndh02s2uu"]
+
+[ext_resource type="Script" path="res://MapSector.gd" id="1_ef1s7"]
 
 [node name="TestLevel" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-256, -256)
+script = ExtResource("1_ef1s7")
