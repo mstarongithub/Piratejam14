@@ -56,7 +56,7 @@ Once the player fails to conquer a tile and has no cards left, the game ends and
 
 The game utilises cards to build towers. Every card represents one tower and can only be used once.
 
-Players gain a minimum amount of cards every time they successfully conquer a tile. Each tower still standing once the players conquered a tile will award players with one random card per tower.
+Players gain a minimum amount of cards every time they successfully conquer a tile. Additionally, each tower left standing once a tile is conquered will contribute to bonus cards.
 
 ### Optional mechanics once base is good
 
