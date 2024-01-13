@@ -4,7 +4,7 @@ class_name MapSector extends Node2D
 #Static things can be a TileMap, TextureRect, etc
 
 const tile_size := 16
-const region_size := 32
+const region_size := 16
 var tiles: Array[MapTile] = []
 
 func _init():

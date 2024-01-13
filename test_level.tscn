@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://yh2ndh02s2uu"]
 
-[ext_resource type="Script" path="res://MapSector.gd" id="1_ef1s7"]
+[ext_resource type="Script" path="res://templates/MapSectorData.gd" id="1_ef1s7"]
 [ext_resource type="Script" path="res://InputHandler.gd" id="1_mb4lb"]
 [ext_resource type="Texture2D" uid="uid://cjhqeuae4ujwl" path="res://Assets/RTS Medieval (Pixel)/tilemap_packed.png" id="3_hh6gi"]
 
@@ -222,12 +222,13 @@ texture = ExtResource("3_hh6gi")
 sources/0 = SubResource("TileSetAtlasSource_i87rt")
 
 [node name="TestLevel" type="Node2D"]
+scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 
-[node name="InputHandler" type="Node2D" parent="."]
+[node name="InputHandler" type="Node" parent="."]
 script = ExtResource("1_mb4lb")
 
 [node name="Caret" type="Sprite2D" parent="."]
