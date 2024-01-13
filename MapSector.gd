@@ -1,5 +1,8 @@
 class_name MapSector extends Node2D
 
+#A map sector should be used for things that can change during the game.
+#Static things can be a TileMap, TextureRect, etc
+
 const tile_size := 16
 const region_size := 32
 var tiles: Array[MapTile] = []
@@ -15,12 +18,16 @@ func _process(_delta):
 
 func _draw():
 	for i in len(tiles):
-		var x = fmod(i, region_size) * tile_size
-		var y = floor(i / region_size) * tile_size
-		#printt(i, x, y)
+		var p = index_to_pos(i)
+		#Don't try to draw if we can't because draw_* functions expect a valid call
 		if tiles[i].texture() != null:
-			draw_texture_rect(tiles[i].texture(), Rect2(x, y, tile_size, tile_size), true)
+			draw_texture_rect(tiles[i].texture(), Rect2(p.x, p.y, tile_size, tile_size), true)
 
-func global_tile_to_index(pos: Vector2):
+func index_to_pos(i: int) -> Vector2:
+	return Vector2(	fmod(i, region_size) * tile_size,
+					floor(i / region_size) * tile_size)
+
+#This will return a "valid" index even if we're outside the region
+func global_tile_to_index(pos: Vector2) -> int:
 	var p = pos - (position / tile_size)
 	return p.x + p.y * region_size
