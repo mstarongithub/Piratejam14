@@ -10,7 +10,7 @@ func _init():
 		tiles[i] = MapTile.new()
 	#print(tiles)
 
-func _process(delta):
+func _process(_delta):
 	queue_redraw()
 
 func _draw():

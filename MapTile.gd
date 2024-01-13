@@ -1,12 +1,17 @@
 class_name MapTile extends Node
 
-var content
+var content: int
 
-func _init(c := 0):
+func _init(c := -1):
 	content = c
 
+func is_empty():
+	return content == -1
+
 func texture():
-	return Patron.sprites[content] if content < len(Patron.sprites) else null
+	if is_empty() or content > len(Patron.sprites):
+		return null
+	return Patron.sprites[content]
 
 func _to_string():
 	return &"MapTile %s" % content
