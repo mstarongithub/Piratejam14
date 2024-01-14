@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgv8iwbnew8h5"]
+[gd_scene load_steps=5 format=3 uid="uid://dgv8iwbnew8h5"]
 
 [ext_resource type="Texture2D" uid="uid://cjhqeuae4ujwl" path="res://Assets/RTS Medieval (Pixel)/tilemap_packed.png" id="1_hwilw"]
 
@@ -316,6 +316,8 @@ texture = ExtResource("1_hwilw")
 0:7/0 = 0
 9:2/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wmka3"]
+
 [sub_resource type="TileSet" id="TileSet_lqnda"]
 terrain_set_0/mode = 2
 terrain_set_0/terrain_0/name = "Path"
@@ -323,6 +325,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "EnemyPath"
 terrain_set_0/terrain_1/color = Color(0.917647, 0.0352941, 0.25098, 1)
 sources/0 = SubResource("TileSetAtlasSource_mak4a")
+sources/1 = SubResource("TileSetScenesCollectionSource_wmka3")
 
 [node name="Main" type="Node2D"]
 
@@ -336,6 +339,6 @@ layer_0/tile_data = PackedInt32Array(65535, 0, 0, 65534, 0, 0, 65533, 0, 0, 6553
 layer_1/name = "Paths"
 layer_1/tile_data = PackedInt32Array()
 layer_2/name = "Buildings"
-layer_2/tile_data = PackedInt32Array()
+layer_2/tile_data = PackedInt32Array(-14, 0, 7)
 
 [node name="Camera2D" type="Camera2D" parent="."]
