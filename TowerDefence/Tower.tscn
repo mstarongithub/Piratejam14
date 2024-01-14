@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ciw8nt3udf54m"]
+[gd_scene load_steps=4 format=3 uid="uid://ciw8nt3udf54m"]
 
 [ext_resource type="Script" path="res://TowerDefence/Tower.gd" id="1_43ys4"]
+[ext_resource type="Texture2D" uid="uid://bou52ksqqq7jg" path="res://TowerDefence/TowerPlaceholder.png" id="2_khyat"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u01ls"]
 radius = 100.0
@@ -9,8 +10,13 @@ radius = 100.0
 script = ExtResource("1_43ys4")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_u01ls")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_khyat")
+region_rect = Rect2(207.917, 128.161, 16.2157, 15.6751)
