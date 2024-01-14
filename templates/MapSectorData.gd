@@ -4,17 +4,17 @@ class_name MapSector extends Node2D
 #Static things can be a TileMap, TextureRect, etc
 
 const tile_size := 16
-const region_size := 32
+const region_size := 16
 var tiles: Array[MapTile] = []
 
 func _init():
 	tiles.resize(region_size * region_size)
 	for i in region_size * region_size:
-		tiles[i] = MapTile.new()
+		tiles[i] = MapTile.new(0)
 	#print(tiles)
 
-func _process(_delta):
-	queue_redraw()
+#func _process(_delta):
+#	queue_redraw()
 
 func _draw():
 	for i in len(tiles):

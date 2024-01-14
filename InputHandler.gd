@@ -7,7 +7,7 @@ const speed = 8
 var move: Vector2
 
 func global_to_tile(pos: Vector2):
-	var scale = ProjectSettings.get_setting("display/window/stretch/scale")
+	var scale = ProjectSettings.get_setting("display/window/stretch/scale") * get_parent().scale
 	#      ↓int   ↓global position - ↓half the view + ↓scaled camera position    / ↓scaled tile size
 	return floor((pos - (get_viewport().size / 2.0) + (camera.position * scale)) / (scale * 16.0))
 
@@ -39,4 +39,10 @@ func _unhandled_input(event):
 			print(&"index: %s" % index)
 	if event is InputEventMouseMotion:
 		caret.position = global_to_tile(event.global_position) * 16.0 + caret.texture.region.size / 2.0
+	if  event is InputEventMouseButton and\
+		event.is_action("zoom_in"):
+			get_parent().scale += Vector2(0.1, 0.1)
+	if  event is InputEventMouseButton and\
+		event.is_action("zoom_out"):
+			get_parent().scale -= Vector2(0.1, 0.1)
 		

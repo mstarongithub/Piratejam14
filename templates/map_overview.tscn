@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://5qylww3nofmt"]
+
+[sub_resource type="GDScript" id="GDScript_qsiro"]
+script/source = "extends Node2D
+
+const sector_template = preload(\"res://templates/map_sector.tscn\")
+@export_node_path(\"Camera2D\") var camera
+var sectors = {}
+
+func get_sector(at: Vector2i) -> Node:
+	if not at in sectors:
+		sectors[at] = sector_template.instantiate()
+		add_child(sectors[at])
+	return sectors[at]
+
+func _process(_delta):
+	for s in sectors_in_view():
+		get_sector(s).queue_redraw()
+
+func sectors_in_view() -> Array[Vector2i]:
+	var p = camera.position
+	var r: Array[Vector2i] = []
+	for i in 25:
+		r.push_back(Vector2i(fmod(i, 5) - 2 - p.x, floor(i / 5.0) - 2 - p.y))
+	return r
+
+"
+
+[node name="MapOverview" type="Node2D"]
+script = SubResource("GDScript_qsiro")

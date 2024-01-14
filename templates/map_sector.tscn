@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv3llyjfarp6k"]
+
+[ext_resource type="Script" path="res://templates/MapSectorData.gd" id="1_g4d2u"]
+
+[node name="MapSector" type="Node2D"]
+
+[node name="Dynamic" type="Node2D" parent="."]
+
+[node name="MapSectorData" type="Node2D" parent="Dynamic"]
+script = ExtResource("1_g4d2u")
+
+[node name="Static" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Static"]
+format = 2
