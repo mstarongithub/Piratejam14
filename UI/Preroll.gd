@@ -31,5 +31,5 @@ func transition() -> void:
 			made_with_godot.visible = false
 			for_pirate_jam.visible = true
 		MadeForPirateJam:
-			get_window().content_scale_aspect = _original_scale
+			# get_window().content_scale_aspect = _original_scale
 			get_tree().change_scene_to_packed(MAIN)

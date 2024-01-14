@@ -37,6 +37,7 @@ layout_mode = 2
 text = "Made with Godot"
 
 [node name="ForPirateJam" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
+visible = false
 layout_mode = 2
 alignment = 1
 
