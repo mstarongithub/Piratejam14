@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://biq1exx8itmpn"]
+
+[ext_resource type="Script" path="res://UI/Preroll.gd" id="1_v38gi"]
+[ext_resource type="Texture2D" uid="uid://43wshddliq7j" path="res://icon.svg" id="2_q8mmq"]
+[ext_resource type="Texture2D" uid="uid://d2nd1esvc416b" path="res://Assets/Logos/PirateJamBottle.png" id="3_gshx2"]
+
+[node name="Preroll" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v38gi")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="MadeWithGodot" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/CenterContainer/MadeWithGodot"]
+layout_mode = 2
+texture = ExtResource("2_q8mmq")
+
+[node name="Label" type="Label" parent="PanelContainer/CenterContainer/MadeWithGodot"]
+layout_mode = 2
+text = "Made with Godot"
+
+[node name="ForPirateJam" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/CenterContainer/ForPirateJam"]
+layout_mode = 2
+texture = ExtResource("3_gshx2")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/CenterContainer/ForPirateJam"]
+layout_mode = 2
+text = "Made for Pirate Jam 14"
+horizontal_alignment = 1
