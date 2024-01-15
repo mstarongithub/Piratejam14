@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Util="*res://Globals/Util.gd"
+LiveRunData="*res://Globals/LiveRunData.gd"
 
 [debug]
 
@@ -69,6 +70,12 @@ zoom_out={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":16,"position":Vector2(92, 9),"global_position":Vector2(94, 32),"factor":1.0,"button_index":5,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Collisions"
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="Tower"
 
 [rendering]
 

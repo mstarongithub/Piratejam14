@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgv8iwbnew8h5"]
+[gd_scene load_steps=13 format=3 uid="uid://dgv8iwbnew8h5"]
 
 [ext_resource type="Texture2D" uid="uid://cjhqeuae4ujwl" path="res://Assets/RTS Medieval (Pixel)/tilemap_packed.png" id="1_hwilw"]
+[ext_resource type="PackedScene" uid="uid://ciw8nt3udf54m" path="res://TowerDefence/Tower.tscn" id="2_3ko36"]
+[ext_resource type="PackedScene" uid="uid://dwi8g8brrqs2g" path="res://TowerDefence/Enemy.tscn" id="3_0ioof"]
+[ext_resource type="Script" path="res://TowerDefence/TowerData.gd" id="3_ohvuq"]
+[ext_resource type="Script" path="res://TowerDefence/EnemyData.gd" id="4_b5xoh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mak4a"]
 texture = ExtResource("1_hwilw")
@@ -327,6 +331,34 @@ terrain_set_0/terrain_1/color = Color(0.917647, 0.0352941, 0.25098, 1)
 sources/0 = SubResource("TileSetAtlasSource_mak4a")
 sources/1 = SubResource("TileSetScenesCollectionSource_wmka3")
 
+[sub_resource type="Resource" id="Resource_u62wi"]
+script = ExtResource("3_ohvuq")
+attack_speed = 1.0
+base_health = 30
+range = 100
+base_attack = 20
+
+[sub_resource type="Resource" id="Resource_ahxpc"]
+script = ExtResource("3_ohvuq")
+attack_speed = 1.0
+base_health = 30
+range = 210
+base_attack = 20
+
+[sub_resource type="Resource" id="Resource_61eca"]
+script = ExtResource("4_b5xoh")
+base_health = 10000
+attack_range = 200
+attack_speed = 1.0
+base_damage = 20
+base_speed = 50
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mv8de"]
+vertices = PackedVector2Array(655, -349, 654, 398, -636, 405, -641, -389)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(666, -359, 664, 408, -646, 416, -652, -400)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -342,3 +374,23 @@ layer_2/name = "Buildings"
 layer_2/tile_data = PackedInt32Array(-14, 0, 7)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Tower" parent="." instance=ExtResource("2_3ko36")]
+position = Vector2(-128, -32)
+config = SubResource("Resource_u62wi")
+
+[node name="Tower2" parent="." instance=ExtResource("2_3ko36")]
+position = Vector2(-128, 160)
+config = SubResource("Resource_u62wi")
+
+[node name="Tower3" parent="." instance=ExtResource("2_3ko36")]
+position = Vector2(-416, 0)
+config = SubResource("Resource_ahxpc")
+
+[node name="Enemy" parent="." instance=ExtResource("3_0ioof")]
+position = Vector2(214, -35)
+data = SubResource("Resource_61eca")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_mv8de")

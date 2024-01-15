@@ -10,7 +10,8 @@ func get_sector(at: Vector2i) -> Node:
 	return sectors[at]
 
 func _draw():
-	for sec
+	pass
+	#for sec
 
 func sectors_in_view() -> Array[Vector2i]:
 	var p = camera.position
