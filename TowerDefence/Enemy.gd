@@ -26,10 +26,12 @@ func _physics_process(_delta: float) -> void:
 	var next_target := LiveRunData.get_tower_closest_to(global_position)
 	# Can be null, catch that
 	if not next_target:
+		$debuginfo.text = &""
 		return
 	if next_target.global_position.distance_squared_to(global_position) < data.attack_range**2:
 		_attack(next_target)
 	else:
+		$debuginfo.text = &"Moving to: %s" % next_target
 		if _physics_frames_passed < PHYS_FRAMES_TO_WAIT:
 			_physics_frames_passed += 1
 			return
@@ -41,7 +43,8 @@ func _physics_process(_delta: float) -> void:
 func _attack(t: Tower) -> void:
 	if not _can_attack:
 		return
-	print("Attacking ", t)
+	#print("Attacking ", t)
+	$debuginfo.text = &"Attacking: %s" % str(t)
 	t.deal_damage(data.base_damage)
 	_can_attack = false
 	_attack_cooldown.start()

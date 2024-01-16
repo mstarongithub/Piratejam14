@@ -30,4 +30,10 @@ texture = ExtResource("2_r1lec")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 radius = 30.0
 
+[node name="debuginfo" type="Label" parent="."]
+offset_left = 14.0
+offset_top = -11.0
+offset_right = 54.0
+offset_bottom = 12.0
+
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

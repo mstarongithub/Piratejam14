@@ -12,10 +12,8 @@ func remove_tower(t: Tower) -> void:
 
 ## Returns the tower closest to the given global position
 func get_tower_closest_to(pos: Vector2) -> Tower:
-	var distance := 999**2 # Should be big enough
-	var closest: Tower = null
-	for i in _towers:
-		if i.global_position.distance_squared_to(pos) < distance:
-			distance = i.global_position.distance_squared_to(pos)
-			closest = i
-	return closest
+	return _towers.reduce(func(acc: Tower, t: Tower):
+		if t.global_position.distance_squared_to(pos) < acc.global_position.distance_squared_to(pos):
+			return t
+		else:
+			return acc)

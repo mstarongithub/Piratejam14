@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ls7ukg1k4kml"]
+
+[ext_resource type="Script" path="res://GameSceneFramework.gd" id="1_14ofc"]
+
+[node name="GameSceneFramework" type="Node2D"]
+script = ExtResource("1_14ofc")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="GameMap" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)

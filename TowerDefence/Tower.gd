@@ -125,3 +125,6 @@ func _on_death() -> void:
 	is_dead = true
 	LiveRunData.remove_tower(self)
 	$StaticBody2D/CollisionShape2D.disabled = true
+
+func _to_string():
+	return &"%s at %s" % [name, global_position]
