@@ -51,6 +51,7 @@ func _ready_engine() -> void:
 	_detection_shape.shape = _detection_shape.shape.duplicate()
 	
 func _ready_game() -> void:
+	_detection_shape.shape = _detection_shape.shape.duplicate()
 	LiveRunData.register_tower(self)
 	_ready_game_done = true
 	_reload_from_data()

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://TowerDefence/Tower.gd" id="1_43ys4"]
 [ext_resource type="Texture2D" uid="uid://bou52ksqqq7jg" path="res://TowerDefence/TowerPlaceholder.png" id="2_khyat"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yv41k"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3une1"]
 radius = 210.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ib5e"]
@@ -18,7 +18,7 @@ collision_mask = 2
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_yv41k")
+shape = SubResource("CircleShape2D_3une1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_khyat")

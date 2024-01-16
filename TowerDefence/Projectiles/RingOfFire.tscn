@@ -1,0 +1,101 @@
+[gd_scene load_steps=14 format=3 uid="uid://qad5141arqc"]
+
+[ext_resource type="Script" path="res://TowerDefence/Projectiles/RingOfFire.gd" id="1_tn00m"]
+[ext_resource type="Texture2D" uid="uid://xy383djlsg60" path="res://Assets/RingOfSomething.png" id="2_v2jo8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nubks"]
+atlas = ExtResource("2_v2jo8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75em3"]
+atlas = ExtResource("2_v2jo8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkt2m"]
+atlas = ExtResource("2_v2jo8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2kq5"]
+atlas = ExtResource("2_v2jo8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn1td"]
+atlas = ExtResource("2_v2jo8")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1iyr"]
+atlas = ExtResource("2_v2jo8")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f67c"]
+atlas = ExtResource("2_v2jo8")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3qmd"]
+atlas = ExtResource("2_v2jo8")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bx536"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nubks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75em3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkt2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2kq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn1td")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1iyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f67c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3qmd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_po866"]
+radius = 17.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ex7f"]
+
+[node name="RingOfFire" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_tn00m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bx536")
+autoplay = "default"
+frame_progress = 0.0205655
+
+[node name="OutsideRing" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutsideRing"]
+shape = SubResource("CircleShape2D_po866")
+
+[node name="InsideRing" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InsideRing"]
+shape = SubResource("CircleShape2D_7ex7f")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="sprite_frames_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func deal_damage(dmg: int) -> void:
 	health -= dmg
+	$debuginfo.text = &"Took %d damage" % dmg
 	if health <= 0:
 		queue_free()
 

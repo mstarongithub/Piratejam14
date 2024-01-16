@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dgv8iwbnew8h5"]
+[gd_scene load_steps=14 format=3 uid="uid://dgv8iwbnew8h5"]
 
 [ext_resource type="Texture2D" uid="uid://cjhqeuae4ujwl" path="res://Assets/RTS Medieval (Pixel)/tilemap_packed.png" id="1_hwilw"]
 [ext_resource type="PackedScene" uid="uid://ciw8nt3udf54m" path="res://TowerDefence/Tower.tscn" id="2_3ko36"]
 [ext_resource type="PackedScene" uid="uid://dwi8g8brrqs2g" path="res://TowerDefence/Enemy.tscn" id="3_0ioof"]
 [ext_resource type="Script" path="res://TowerDefence/TowerData.gd" id="3_ohvuq"]
+[ext_resource type="Resource" uid="uid://b7um3bh0vmqrh" path="res://TowerDefence/Towers/RingOfSomething.tres" id="4_8m68q"]
 [ext_resource type="Script" path="res://TowerDefence/EnemyData.gd" id="4_b5xoh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mak4a"]
@@ -347,10 +348,10 @@ base_attack = 20
 
 [sub_resource type="Resource" id="Resource_61eca"]
 script = ExtResource("4_b5xoh")
-base_health = 10000
-attack_range = 200
+base_health = 100
+attack_range = 30
 attack_speed = 1.0
-base_damage = 20
+base_damage = 10
 base_speed = 50
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mv8de"]
@@ -376,15 +377,17 @@ layer_2/tile_data = PackedInt32Array(-14, 0, 7)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Tower" parent="." instance=ExtResource("2_3ko36")]
-position = Vector2(-128, -32)
+process_mode = 2
+position = Vector2(-128, 64)
 config = SubResource("Resource_u62wi")
 
 [node name="Tower2" parent="." instance=ExtResource("2_3ko36")]
-position = Vector2(-128, 160)
-config = SubResource("Resource_u62wi")
+position = Vector2(-64, -32)
+config = ExtResource("4_8m68q")
 
 [node name="Tower3" parent="." instance=ExtResource("2_3ko36")]
-position = Vector2(-416, 0)
+process_mode = 2
+position = Vector2(-256, -96)
 config = SubResource("Resource_ahxpc")
 
 [node name="Enemy" parent="." instance=ExtResource("3_0ioof")]
