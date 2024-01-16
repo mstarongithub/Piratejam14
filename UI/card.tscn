@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvvfecxmohkp3"]
+
+[ext_resource type="Script" path="res://UI/card.gd" id="1_0xk4s"]
+[ext_resource type="Texture2D" uid="uid://43wshddliq7j" path="res://icon.svg" id="1_pkoi6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dewc5"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="LabelSettings" id="LabelSettings_rsjsy"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Card" type="PanelContainer"]
+custom_minimum_size = Vector2(120, 170)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_dewc5")
+script = ExtResource("1_0xk4s")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_pkoi6")
+expand_mode = 3
+
+[node name="name" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "#Card x69"
+label_settings = SubResource("LabelSettings_rsjsy")
+horizontal_alignment = 1

@@ -1,5 +1,5 @@
 @tool
-class_name Tower extends Node2D
+class_name Tower extends Sprite2D
 
 const DEFAULT_PROJECTILE = preload("res://TowerDefence/DefaultProjectile.tscn")
 
@@ -16,19 +16,15 @@ signal died
 
 @onready var _detection_shape: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var _detection_area: Area2D = $Area2D
-@onready var _sprite_2d: Sprite2D = $Sprite2D
 @onready var _attack_cooldown: Timer = $AttackCooldown
 @onready var _navigation_obstacle_2d: NavigationObstacle2D = $NavigationObstacle2D
 
-
-var _default_sprite: Texture2D
 var _health: int = 100
 var is_dead := false
 var _can_attack := true
 var _ready_game_done := false
 
 func _ready() -> void:
-	_default_sprite = _sprite_2d.texture
 	if Engine.is_editor_hint():
 		_ready_engine()
 	else:
@@ -60,14 +56,11 @@ func _reload_from_data() -> void:
 	if not Engine.is_editor_hint() and not _ready_game_done:
 		return
 	if not config:
-		_sprite_2d.texture = _default_sprite
 		return
 	if not config.updated.is_connected(_reload_from_data):
 		config.updated.connect(_reload_from_data)
 	if config.sprite:
-		_sprite_2d.texture = config.sprite
-	else:
-		_sprite_2d.texture = _default_sprite
+		texture = config.sprite
 	(_detection_shape.shape as CircleShape2D).radius = config.range
 	_health = config.base_health
 	print(config.base_health)

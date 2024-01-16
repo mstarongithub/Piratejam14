@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ciw8nt3udf54m"]
+[gd_scene load_steps=6 format=3 uid="uid://ciw8nt3udf54m"]
 
 [ext_resource type="Script" path="res://TowerDefence/Tower.gd" id="1_43ys4"]
-[ext_resource type="Texture2D" uid="uid://bou52ksqqq7jg" path="res://TowerDefence/TowerPlaceholder.png" id="2_khyat"]
+[ext_resource type="Texture2D" uid="uid://cjhqeuae4ujwl" path="res://Assets/RTS Medieval (Pixel)/tilemap_packed.png" id="1_of52a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srkec"]
+atlas = ExtResource("1_of52a")
+region = Rect2(160, 48, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3une1"]
 radius = 210.0
@@ -9,7 +13,8 @@ radius = 210.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ib5e"]
 radius = 16.0
 
-[node name="Tower" type="Node2D"]
+[node name="Tower" type="Sprite2D"]
+texture = SubResource("AtlasTexture_srkec")
 script = ExtResource("1_43ys4")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -19,10 +24,6 @@ input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_3une1")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_khyat")
-region_rect = Rect2(207.917, 128.161, 16.2157, 15.6751)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 5
@@ -35,5 +36,3 @@ one_shot = true
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 radius = 16.0
-
-[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
