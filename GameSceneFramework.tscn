@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ls7ukg1k4kml"]
+[gd_scene load_steps=5 format=3 uid="uid://ls7ukg1k4kml"]
 
 [ext_resource type="Script" path="res://GameSceneFramework.gd" id="1_14ofc"]
+[ext_resource type="Script" path="res://InputHandler.gd" id="2_s4p75"]
+[ext_resource type="Texture2D" uid="uid://cjhqeuae4ujwl" path="res://Assets/RTS Medieval (Pixel)/tilemap_packed.png" id="3_g5eb6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nko5t"]
+atlas = ExtResource("3_g5eb6")
+region = Rect2(224, 112, 16, 16)
 
 [node name="GameSceneFramework" type="Node2D"]
 script = ExtResource("1_14ofc")
@@ -10,3 +16,13 @@ script = ExtResource("1_14ofc")
 [node name="GameMap" type="CanvasLayer" parent="."]
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
+follow_viewport_enabled = true
+
+[node name="Caret" type="Sprite2D" parent="GameMap"]
+z_index = 100
+texture = SubResource("AtlasTexture_nko5t")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="InputHandler" type="Node" parent="."]
+script = ExtResource("2_s4p75")

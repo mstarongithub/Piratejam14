@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwi8g8brrqs2g"]
+[gd_scene load_steps=6 format=3 uid="uid://dwi8g8brrqs2g"]
 
 [ext_resource type="Script" path="res://TowerDefence/Enemy.gd" id="1_772a4"]
-[ext_resource type="Texture2D" uid="uid://dttn2wrssnayr" path="res://TowerDefence/EnemyPlaceholder.png" id="2_r1lec"]
+[ext_resource type="Texture2D" uid="uid://cjhqeuae4ujwl" path="res://Assets/RTS Medieval (Pixel)/tilemap_packed.png" id="2_27k0a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ine1v"]
 radius = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i8n6q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wohcq"]
+atlas = ExtResource("2_27k0a")
+region = Rect2(256, 64, 16, 16)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 3
@@ -23,12 +27,16 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_i8n6q")
 
 [node name="EnemyPlaceholder" type="Sprite2D" parent="."]
-texture = ExtResource("2_r1lec")
+texture = SubResource("AtlasTexture_wohcq")
 
 [node name="AttackCooldown" type="Timer" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-radius = 30.0
+path_desired_distance = 8.0
+target_desired_distance = 8.0
+path_max_distance = 32.0
+path_postprocessing = 1
+path_metadata_flags = 0
 debug_enabled = true
 
 [node name="debuginfo" type="Label" parent="."]
