@@ -29,6 +29,7 @@ texture = ExtResource("2_r1lec")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 radius = 30.0
+debug_enabled = true
 
 [node name="debuginfo" type="Label" parent="."]
 offset_left = 14.0
