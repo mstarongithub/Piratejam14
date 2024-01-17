@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvvfecxmohkp3"]
+[gd_scene load_steps=6 format=3 uid="uid://bvvfecxmohkp3"]
 
 [ext_resource type="Script" path="res://UI/card.gd" id="1_0xk4s"]
 [ext_resource type="Texture2D" uid="uid://43wshddliq7j" path="res://icon.svg" id="1_pkoi6"]
+[ext_resource type="Resource" uid="uid://b8sh44n1ejhj1" path="res://templates/Card.tres" id="2_vj7x1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dewc5"]
 bg_color = Color(1, 1, 1, 1)
@@ -23,6 +24,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_dewc5")
 script = ExtResource("1_0xk4s")
+type = ExtResource("2_vj7x1")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ls7ukg1k4kml"]
+[gd_scene load_steps=6 format=3 uid="uid://ls7ukg1k4kml"]
 
 [ext_resource type="Script" path="res://GameSceneFramework.gd" id="1_14ofc"]
+[ext_resource type="PackedScene" uid="uid://bvvfecxmohkp3" path="res://UI/card.tscn" id="2_7sf8c"]
 [ext_resource type="Script" path="res://InputHandler.gd" id="2_s4p75"]
 [ext_resource type="Texture2D" uid="uid://cjhqeuae4ujwl" path="res://Assets/RTS Medieval (Pixel)/tilemap_packed.png" id="3_g5eb6"]
 
@@ -12,6 +13,9 @@ region = Rect2(224, 112, 16, 16)
 script = ExtResource("1_14ofc")
 
 [node name="GUI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Card" parent="GUI" instance=ExtResource("2_7sf8c")]
 
 [node name="GameMap" type="CanvasLayer" parent="."]
 scale = Vector2(2, 2)

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://b8sh44n1ejhj1"]
+
+[ext_resource type="Script" path="res://templates/Card.gd" id="1_hngj1"]
+[ext_resource type="Resource" uid="uid://f3daaeun1dno" path="res://templates/Effect.tres" id="1_y1m68"]
+
+[resource]
+script = ExtResource("1_hngj1")
+effect = ExtResource("1_y1m68")
+amount = 3
