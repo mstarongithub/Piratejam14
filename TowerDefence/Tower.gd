@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 		_process_game(delta)
 
 func _process_editor(_delta: float) -> void:
-	Util.snap_to_tilemap(self)
+	pass#Util.snap_to_tilemap(self)
 
 func _process_game(_delta: float) -> void:
 	if is_dead:

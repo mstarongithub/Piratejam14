@@ -5,9 +5,9 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_srkec"]
 atlas = ExtResource("1_of52a")
-region = Rect2(160, 48, 16, 16)
+region = Rect2(48, 112, 16, 32)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_64gmw"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_vglnw"]
 radius = 210.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ib5e"]
@@ -15,6 +15,8 @@ radius = 16.0
 
 [node name="Tower" type="Sprite2D"]
 texture = SubResource("AtlasTexture_srkec")
+centered = false
+offset = Vector2(-8, -32)
 script = ExtResource("1_43ys4")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -24,7 +26,7 @@ collision_mask = 2
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_64gmw")
+shape = SubResource("CircleShape2D_vglnw")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 visible = false

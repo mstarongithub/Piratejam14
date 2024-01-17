@@ -6,6 +6,7 @@ class_name InputHandler extends Node
 
 const speed = 8
 var move: Vector2
+var dragging := false
 
 func global_to_tile(pos: Vector2):
 	var scale = ProjectSettings.get_setting("display/window/stretch/scale") * gamearea.scale
@@ -38,12 +39,23 @@ func _unhandled_input(event):
 			#sector.tiles[index].content = 75
 			print(&"clicked on %s" % global_to_tile(event.global_position))
 			#print(&"index: %s" % index)
+	if  event is InputEventMouseButton and\
+		event.button_index == MOUSE_BUTTON_RIGHT:
+			if event.is_pressed():
+				dragging = true
+			if event.is_released():
+				dragging = false
 	if event is InputEventMouseMotion:
+		if dragging:
+			camera.position -= event.relative
 		caret.position = global_to_tile(event.global_position) * 16.0 + caret.texture.region.size / 2.0
 	if  event is InputEventMouseButton and\
 		event.is_action("zoom_in"):
+			var s = gamearea.scale
 			gamearea.scale += Vector2(0.1, 0.1)
+			camera.position = camera.position * gamearea.scale / s
 	if  event is InputEventMouseButton and\
 		event.is_action("zoom_out"):
+			var s = gamearea.scale
 			gamearea.scale -= Vector2(0.1, 0.1)
-		
+			camera.position = camera.position * gamearea.scale / s

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://unal11hxuoov"]
 
-[ext_resource type="TileSet" uid="uid://cwhd1smg8rpse" path="res://MedievalTileSet.tres" id="1_o03je"]
+[ext_resource type="TileSet" uid="uid://dd33gq2ur0d3" path="res://MedievalTileSet.tres" id="1_o03je"]
 [ext_resource type="Script" path="res://TowerDefence/TileMap.gd" id="2_dwjvh"]
 [ext_resource type="PackedScene" uid="uid://ciw8nt3udf54m" path="res://TowerDefence/Tower.tscn" id="2_i7kod"]
 [ext_resource type="Script" path="res://TowerDefence/TowerData.gd" id="3_vox5n"]
@@ -45,15 +45,15 @@ script = ExtResource("2_dwjvh")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Tower" parent="." instance=ExtResource("2_i7kod")]
-position = Vector2(-8, -40)
+position = Vector2(-40, -32)
 config = SubResource("Resource_u62wi")
 
 [node name="Tower2" parent="." instance=ExtResource("2_i7kod")]
-position = Vector2(8, 152)
+position = Vector2(-8, 144)
 config = SubResource("Resource_u62wi")
 
 [node name="Tower3" parent="." instance=ExtResource("2_i7kod")]
-position = Vector2(-216, -8)
+position = Vector2(-216, 0)
 config = SubResource("Resource_ahxpc")
 
 [node name="Enemy" parent="." instance=ExtResource("4_wxsyc")]

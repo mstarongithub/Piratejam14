@@ -16,6 +16,7 @@ script = ExtResource("1_14ofc")
 layer = 2
 
 [node name="Card" parent="GUI" instance=ExtResource("2_7sf8c")]
+visible = false
 
 [node name="GameMap" type="CanvasLayer" parent="."]
 scale = Vector2(2, 2)
