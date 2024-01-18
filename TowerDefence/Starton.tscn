@@ -60,3 +60,7 @@ config = SubResource("Resource_ahxpc")
 [node name="Enemy" parent="." instance=ExtResource("5_7i2jt")]
 position = Vector2(200, 40)
 data = SubResource("Resource_61eca")
+
+[node name="Enemy2" parent="." instance=ExtResource("5_7i2jt")]
+position = Vector2(232, 40)
+data = SubResource("Resource_61eca")

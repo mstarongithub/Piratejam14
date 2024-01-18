@@ -49,7 +49,6 @@ func _unhandled_input(event):
 		if dragging:
 			camera.position -= event.relative
 		caret.position = global_to_tile(event.global_position) * 16.0 + caret.texture.region.size / 2.0
-		caret.get_node("debugcur").text = &"W: %d" % NavigationServer2D.region_get_travel_cost(find_region_at(global_to_tile(event.global_position) * 16.0))
 	if  event is InputEventMouseButton and\
 		event.is_action("zoom_in"):
 			var s = gamearea.scale
@@ -60,9 +59,3 @@ func _unhandled_input(event):
 			var s = gamearea.scale
 			gamearea.scale -= Vector2(0.1, 0.1)
 			camera.position = camera.position * gamearea.scale / s
-
-func find_region_at(p):
-	for reg in NavigationServer2D.map_get_regions(NavigationServer2D.get_maps()[0]):
-		if NavigationServer2D.region_owns_point(reg, p):
-			return reg
-	return RID()
