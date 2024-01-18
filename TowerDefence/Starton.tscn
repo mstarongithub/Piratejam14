@@ -48,13 +48,14 @@ script = ExtResource("2_5hw8l")
 z_index = 1
 position = Vector2(104, 112)
 config = SubResource("Resource_u62wi")
+snap_to_tilemap = null
 
 [node name="Tower2" parent="." instance=ExtResource("3_7ngki")]
-position = Vector2(152, 144)
+position = Vector2(152, 152)
 config = SubResource("Resource_u62wi")
 
 [node name="Tower3" parent="." instance=ExtResource("3_7ngki")]
-position = Vector2(72, 160)
+position = Vector2(72, 152)
 config = SubResource("Resource_ahxpc")
 
 [node name="Enemy" parent="." instance=ExtResource("5_7i2jt")]

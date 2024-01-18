@@ -12,14 +12,14 @@
 script = ExtResource("3_ohvuq")
 attack_speed = 1.0
 base_health = 30
-range = 100
+attack_range = 100
 base_attack = 20
 
 [sub_resource type="Resource" id="Resource_ahxpc"]
 script = ExtResource("3_ohvuq")
 attack_speed = 1.0
 base_health = 30
-range = 210
+attack_range = 100
 base_attack = 20
 
 [sub_resource type="Resource" id="Resource_61eca"]
@@ -56,16 +56,19 @@ layer_2/tile_data = PackedInt32Array(-14, 0, 7)
 process_mode = 2
 position = Vector2(-128, 64)
 config = SubResource("Resource_u62wi")
+snap_to_tilemap = null
 
 [node name="Tower2" parent="." instance=ExtResource("2_3ko36")]
 position = Vector2(-64, -32)
 texture = ExtResource("4_3pmrg")
 config = ExtResource("4_8m68q")
+snap_to_tilemap = null
 
 [node name="Tower3" parent="." instance=ExtResource("2_3ko36")]
 process_mode = 2
 position = Vector2(-256, -96)
 config = SubResource("Resource_ahxpc")
+snap_to_tilemap = null
 
 [node name="Enemy" parent="." instance=ExtResource("3_0ioof")]
 position = Vector2(214, -35)

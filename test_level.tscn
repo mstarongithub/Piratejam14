@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://templates/MapSectorData.gd" id="1_ef1s7"]
 [ext_resource type="Script" path="res://InputHandler.gd" id="1_mb4lb"]
 [ext_resource type="Texture2D" uid="uid://cjhqeuae4ujwl" path="res://Assets/RTS Medieval (Pixel)/tilemap_packed.png" id="3_hh6gi"]
-[ext_resource type="TileSet" uid="uid://ch568u2dkt7gg" path="res://TileMap.tres" id="3_jysmx"]
+[ext_resource type="TileSet" uid="uid://dd33gq2ur0d3" path="res://MedievalTileSet.tres" id="3_jysmx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0hxmv"]
 atlas = ExtResource("3_hh6gi")
