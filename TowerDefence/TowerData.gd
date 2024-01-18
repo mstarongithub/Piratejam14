@@ -22,9 +22,9 @@ signal updated
 		updated.emit()
 
 ## Attack range in pixels
-@export var range: int = 100:
+@export var attack_range: int = 100:
 	set(new):
-		range = new
+		attack_range = new
 		updated.emit()
 
 @export var sprite: Texture2D:

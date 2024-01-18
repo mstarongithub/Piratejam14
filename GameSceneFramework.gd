@@ -2,7 +2,7 @@ extends Node2D
 
 func load_game_scene(scene: PackedScene):
 	for c in $GameMap.get_children():
-		print(c.name)
+		#print(c.name)
 		if c.name != &"Caret":
 			$GameMap.remove_child(c)
 	$GameMap.add_child(scene.instantiate())

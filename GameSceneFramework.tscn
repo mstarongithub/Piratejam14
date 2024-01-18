@@ -27,6 +27,10 @@ follow_viewport_enabled = true
 z_index = 100
 texture = SubResource("AtlasTexture_nko5t")
 
+[node name="debugcur" type="Label" parent="GameMap/Caret"]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="InputHandler" type="Node" parent="."]

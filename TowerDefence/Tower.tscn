@@ -7,7 +7,7 @@
 atlas = ExtResource("1_of52a")
 region = Rect2(48, 112, 16, 32)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vglnw"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ull71"]
 radius = 210.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ib5e"]
@@ -26,7 +26,7 @@ collision_mask = 2
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_vglnw")
+shape = SubResource("CircleShape2D_ull71")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 visible = false

@@ -17,7 +17,6 @@ signal died
 @onready var _detection_shape: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var _detection_area: Area2D = $Area2D
 @onready var _attack_cooldown: Timer = $AttackCooldown
-@onready var _navigation_obstacle_2d: NavigationObstacle2D = $NavigationObstacle2D
 
 var _health: int = 100
 var is_dead := false
@@ -53,17 +52,15 @@ func _ready_game() -> void:
 	_reload_from_data()
 
 func _reload_from_data() -> void:
-	if not Engine.is_editor_hint() and not _ready_game_done:
-		return
-	if not config:
+	if not config or not Engine.is_editor_hint() and not _ready_game_done:
 		return
 	if not config.updated.is_connected(_reload_from_data):
 		config.updated.connect(_reload_from_data)
 	if config.sprite:
 		texture = config.sprite
-	(_detection_shape.shape as CircleShape2D).radius = config.range
+	(_detection_shape.shape as CircleShape2D).radius = config.attack_range
 	_health = config.base_health
-	print(config.base_health)
+	#print(config.base_health)
 	_attack_cooldown.wait_time = config.attack_speed
 
 ## For removing self from the list of existing towers in case of deletion
