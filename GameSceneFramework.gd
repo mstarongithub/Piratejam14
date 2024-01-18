@@ -13,4 +13,4 @@ func load_GUI_scene(scene: PackedScene):
 	$GUI.add_child(scene.instantiate())
 
 func _ready():
-	load_game_scene(load("res://TowerDefence/testdefense.tscn"))
+	load_game_scene(load("res://TowerDefence/Starton.tscn"))

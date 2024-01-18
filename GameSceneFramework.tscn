@@ -28,6 +28,7 @@ z_index = 100
 texture = SubResource("AtlasTexture_nko5t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(256, 256)
 
 [node name="InputHandler" type="Node" parent="."]
 script = ExtResource("2_s4p75")

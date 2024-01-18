@@ -38,6 +38,9 @@ func _unhandled_input(event):
 			#var index = sector.global_tile_to_index(global_to_tile(event.global_position))
 			#sector.tiles[index].content = 75
 			print(&"clicked on %s" % global_to_tile(event.global_position))
+			for c in gamearea.get_children():
+				if c.name != &"Caret":
+					c.get_node("TileMap").try_place_road(global_to_tile(event.global_position))
 			#print(&"index: %s" % index)
 	if  event is InputEventMouseButton and\
 		event.button_index == MOUSE_BUTTON_RIGHT:

@@ -2,9 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://cjhqeuae4ujwl" path="res://Assets/RTS Medieval (Pixel)/tilemap_packed.png" id="1_nyic4"]
 
-[sub_resource type="TileMapPattern" id="TileMapPattern_egpq6"]
-tile_data = PackedInt32Array(0, 0, 7, 65536, 0, 8, 1, 65536, 7, 65537, 65536, 8)
-
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ln2pn"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
@@ -75,6 +72,13 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_uo7oh"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_tnv7o"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
@@ -131,6 +135,7 @@ texture = ExtResource("1_nyic4")
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ln2pn")
 0:0/0/custom_data_0 = 50.0
 0:0/1 = 1
+0:0/1/modulate = Color(1, 0, 1, 0)
 0:0/1/navigation_layer_0/polygon = SubResource("NavigationPolygon_vleyt")
 0:0/1/custom_data_0 = 5000.0
 1:0/0 = 0
@@ -174,6 +179,7 @@ texture = ExtResource("1_nyic4")
 11:0/0/terrains_peering_bit/left_side = 0
 11:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ln2pn")
 11:0/0/custom_data_0 = -10.0
+12:0/next_alternative_id = 2
 12:0/0 = 0
 12:0/0/terrain_set = 0
 12:0/0/terrain = 0
@@ -183,6 +189,11 @@ texture = ExtResource("1_nyic4")
 12:0/0/terrains_peering_bit/top_side = 0
 12:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ln2pn")
 12:0/0/custom_data_0 = -10.0
+12:0/1 = 1
+12:0/1/terrain_set = 0
+12:0/1/terrain = 0
+12:0/1/navigation_layer_0/polygon = SubResource("NavigationPolygon_uo7oh")
+12:0/1/custom_data_0 = -10.0
 13:0/0 = 0
 13:0/0/terrain_set = 0
 13:0/0/terrain = 0
@@ -778,4 +789,3 @@ navigation_layer_0/layers = 1
 custom_data_layer_0/name = "weight"
 custom_data_layer_0/type = 3
 sources/0 = SubResource("TileSetAtlasSource_mak4a")
-pattern_0 = SubResource("TileMapPattern_egpq6")

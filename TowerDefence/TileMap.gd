@@ -20,3 +20,39 @@ func _process(_delta):
 		var rs := NavigationServer2D.map_get_regions(m)
 		for i in len(rs):
 			NavigationServer2D.region_set_travel_cost(rs[i], weights[i])
+
+var valid_tiles = [
+	Vector2i(0, 0),
+	Vector2i(1, 0),
+	Vector2i(2, 0),
+	Vector2i(3, 0),
+	Vector2i(0, 1),
+	Vector2i(1, 1),
+	Vector2i(2, 1),
+	Vector2i(3, 1),
+	Vector2i(0, 2),
+	Vector2i(1, 2),
+	Vector2i(2, 2),
+	Vector2i(3, 2),
+	Vector2i(0, 3),
+	Vector2i(1, 3),
+	Vector2i(2, 3),
+	Vector2i(3, 3),
+	Vector2i(0, 4),
+	Vector2i(1, 4),
+	Vector2i(2, 4),
+	Vector2i(3, 4),
+	Vector2i(0, 5),
+	Vector2i(1, 5),
+	Vector2i(2, 5),
+	Vector2i(3, 5),
+]
+func try_place_road(pos: Vector2):
+	var ct = get_cell_atlas_coords(0, pos)
+	var alt = get_cell_alternative_tile(0, pos)
+	print(alt)
+	if ct in valid_tiles and alt == 0:
+		if ct.y > 2:
+			set_cell(0, pos, 0, Vector2(1, 0))
+		set_cells_terrain_connect(1, [pos], 0, 0)
+
