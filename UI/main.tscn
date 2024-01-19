@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://b0k206rrbcyd0"]
+[gd_scene load_steps=2 format=3 uid="uid://b0k206rrbcyd0"]
+
+[ext_resource type="Script" path="res://UI/Main.gd" id="1_5g3lo"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 2
@@ -11,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_5g3lo")
 
 [node name="CenterContainer" type="CenterContainer" parent="Main"]
 layout_mode = 2
@@ -32,6 +35,13 @@ text = "Statistics"
 layout_mode = 2
 text = "Settings"
 
+[node name="Sources" type="Button" parent="Main/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sources"
+
 [node name="Quit" type="Button" parent="Main/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="Main/CenterContainer/VBoxContainer/Start" to="Main" method="_on_start_pressed"]
+[connection signal="pressed" from="Main/CenterContainer/VBoxContainer/Sources" to="Main" method="_on_sources_pressed"]

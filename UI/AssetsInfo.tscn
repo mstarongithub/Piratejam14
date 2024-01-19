@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx50nkson8p7v"]
+
+[ext_resource type="Script" path="res://UI/AssetsInfo.gd" id="1_q0167"]
+
+[node name="AssetsInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q0167")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Assets from:"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Return" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Return"
+
+[node name="Kenney" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "Kenney (Map tiles and Tower sprites (CC0)"
+uri = "https://kenney.nl/"
+
+[node name="Xelu" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "Xelu's Free Controllers & Keyboard Prompts (Input prompts (CC0)"
+uri = "https://thoseawesomeguys.com/prompts/"
+
+[node name="Godot" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "Godot Engine (MIT)"
+uri = "https://godotengine.org/"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Return" to="." method="_on_return_pressed"]
