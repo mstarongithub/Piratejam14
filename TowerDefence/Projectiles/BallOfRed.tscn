@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://pcrk26kugafp"]
+
+[ext_resource type="Script" path="res://TowerDefence/Projectiles/BallOfRed.gd" id="1_mcaui"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_063se"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_aaqps"]
+radius = 10.0
+height = 20.0
+radial_segments = 4
+rings = 8
+
+[node name="BallOfRed" type="Node2D"]
+script = ExtResource("1_mcaui")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_063se")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CharacterBody2D"]
+modulate = Color(1, 0, 0, 1)
+mesh = SubResource("SphereMesh_aaqps")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

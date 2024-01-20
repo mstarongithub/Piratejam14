@@ -7,7 +7,7 @@
 atlas = ExtResource("1_of52a")
 region = Rect2(48, 112, 16, 32)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6ckyx"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_gsr1v"]
 radius = 210.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ib5e"]
@@ -18,27 +18,25 @@ texture = SubResource("AtlasTexture_srkec")
 centered = false
 offset = Vector2(-8, -32)
 script = ExtResource("1_43ys4")
-snap_to_tilemap = null
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_6ckyx")
+shape = SubResource("CircleShape2D_gsr1v")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
 collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_4ib5e")
 
 [node name="AttackCooldown" type="Timer" parent="."]
-one_shot = true
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 visible = false
 radius = 16.0
+
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
