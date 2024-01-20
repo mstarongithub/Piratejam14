@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://TowerDefence/TileMap.gd" id="2_5hw8l"]
 [ext_resource type="PackedScene" uid="uid://ciw8nt3udf54m" path="res://TowerDefence/Tower.tscn" id="3_7ngki"]
 [ext_resource type="Script" path="res://TowerDefence/TowerData.gd" id="4_a8yll"]
-[ext_resource type="PackedScene" uid="uid://pcrk26kugafp" path="res://TowerDefence/Projectiles/BallOfRed.tscn" id="4_oaolo"]
+[ext_resource type="PackedScene" uid="uid://dmqqmwxioy3qo" path="res://TowerDefence/Projectiles/LineOfBlue.tscn" id="4_bdcbe"]
 [ext_resource type="PackedScene" uid="uid://dwi8g8brrqs2g" path="res://TowerDefence/Enemy.tscn" id="5_7i2jt"]
 [ext_resource type="Script" path="res://TowerDefence/EnemyData.gd" id="6_77o8x"]
 
@@ -12,8 +12,8 @@
 script = ExtResource("4_a8yll")
 attack_speed = 0.5
 base_health = 30
-projectile = ExtResource("4_oaolo")
-attack_range = 50
+projectile = ExtResource("4_bdcbe")
+attack_range = 70
 base_attack = 20
 
 [sub_resource type="Resource" id="Resource_ahxpc"]
