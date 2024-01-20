@@ -13,7 +13,10 @@ signal died
 ## Custom behaviour overwrites targeting and related actions.
 ## Does not overwrite health handling
 @export var custom_behaviour: CustomTowerBehaviour
-@export var snap_to_tilemap := true
+@export var snap_to_tilemap := true:
+	set(new):
+		snap_to_tilemap = new
+		print("snap: ", new)
 
 @onready var _detection_shape: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var _detection_area: Area2D = $Area2D
@@ -111,7 +114,6 @@ func deal_damage(dmg: int) -> void:
 	_health -= dmg
 	if _health <= 0:
 		_on_death()
-		
 
 func _on_death() -> void:
 	died.emit()
