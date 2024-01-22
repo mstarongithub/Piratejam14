@@ -11,7 +11,7 @@ var dragging := false
 func global_to_tile(pos: Vector2):
 	var scale = ProjectSettings.get_setting("display/window/stretch/scale") * gamearea.scale
 	#      ↓int   ↓global position - ↓half the view + ↓scaled camera position    / ↓scaled tile size
-	return floor((pos - (get_viewport().size / 2.0) + camera.position) / (scale * 16.0))
+	return Vector2i(floor((pos - (get_viewport().size / 2.0) + camera.position) / (scale * 16.0)))
 
 func _process(delta):
 	#Handling wasd movement here because we need the continuous state, not just the events, and also the delta
@@ -33,15 +33,10 @@ func _unhandled_input(event):
 	if  event is InputEventMouseButton and\
 		event.button_index == MOUSE_BUTTON_LEFT and\
 		event.is_released():
-			#Test stuff: place a tree (75) on the empty MapSector
-			#var sector = get_node("../MapSector")
-			#var index = sector.global_tile_to_index(global_to_tile(event.global_position))
-			#sector.tiles[index].content = 75
 			print(&"clicked on %s" % global_to_tile(event.global_position))
 			for c in gamearea.get_children():
 				if c.name != &"Caret":
 					c.get_node("TileMap").try_place_road(global_to_tile(event.global_position))
-			#print(&"index: %s" % index)
 	if  event is InputEventMouseButton and\
 		event.button_index == MOUSE_BUTTON_RIGHT:
 			if event.is_pressed():
@@ -52,6 +47,12 @@ func _unhandled_input(event):
 		if dragging:
 			camera.position -= event.relative
 		caret.position = global_to_tile(event.global_position) * 16.0 + caret.texture.region.size / 2.0
+		for c in gamearea.get_children():
+			if c.name !="Caret":
+				if c.is_node_ready() and global_to_tile(event.global_position) in c.get_node("TileMap").costs:
+					caret.get_node("debugtxt").text = &"travel cost: %s" % c.get_node("TileMap").costs[global_to_tile(event.global_position)].cost
+				else:
+					caret.get_node("debugtxt").text = &""
 	if  event is InputEventMouseButton and\
 		event.is_action("zoom_in"):
 			var s = gamearea.scale

@@ -23,3 +23,10 @@ func snap_to_tilemap(node_to_snap: Node2D) -> void:
 					# Take own global positon
 					node_to_snap.global_position
 	))))
+
+func find_region_at(map: RID, pos):
+	if map != null and map.get_id() != 0:
+		var regs = NavigationServer2D.map_get_regions(map)
+		for reg in regs:
+			if NavigationServer2D.region_owns_point(reg, pos):
+				return reg

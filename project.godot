@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Piratejam 14"
-run/main_scene="res://GameSceneFramework.tscn"
+run/main_scene="res://UI/Preroll.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

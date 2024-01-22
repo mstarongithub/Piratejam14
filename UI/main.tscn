@@ -45,3 +45,4 @@ text = "Quit"
 
 [connection signal="pressed" from="Main/CenterContainer/VBoxContainer/Start" to="Main" method="_on_start_pressed"]
 [connection signal="pressed" from="Main/CenterContainer/VBoxContainer/Sources" to="Main" method="_on_sources_pressed"]
+[connection signal="pressed" from="Main/CenterContainer/VBoxContainer/Quit" to="Main" method="quit"]

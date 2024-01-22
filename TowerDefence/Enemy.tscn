@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjhqeuae4ujwl" path="res://Assets/RTS Medieval (Pixel)/tilemap_packed.png" id="2_27k0a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ine1v"]
-radius = 12.0416
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i8n6q"]
 radius = 30.0666
@@ -15,6 +15,7 @@ region = Rect2(256, 64, 16, 16)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 3
+motion_mode = 1
 script = ExtResource("1_772a4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -34,8 +35,8 @@ texture = SubResource("AtlasTexture_wohcq")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 8.0
-target_desired_distance = 8.0
-path_max_distance = 32.0
+target_desired_distance = 2.0
+path_max_distance = 16.0
 path_postprocessing = 1
 path_metadata_flags = 0
 debug_enabled = true

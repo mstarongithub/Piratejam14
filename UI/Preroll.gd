@@ -24,6 +24,11 @@ func _process(_delta: float) -> void:
 	Input.is_action_just_pressed("action_menu"):
 		transition()
 
+func _input(event):
+	if event is InputEventMouseButton and\
+	event.is_released():
+		transition()
+
 func transition() -> void:
 	match _state:
 		MadeWithGodot:

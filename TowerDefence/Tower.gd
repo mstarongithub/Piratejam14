@@ -40,6 +40,8 @@ func _process(delta: float) -> void:
 		_process_game(delta)
 
 func _process_editor(_delta: float) -> void:
+	if config and config.attack_range:
+		_detection_area.get_node("CollisionShape2D").shape.radius = config.attack_range
 	if snap_to_tilemap:
 		Util.snap_to_tilemap(self)
 

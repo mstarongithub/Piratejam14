@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ls7ukg1k4kml"]
+[gd_scene load_steps=7 format=3 uid="uid://ls7ukg1k4kml"]
 
 [ext_resource type="Script" path="res://GameSceneFramework.gd" id="1_14ofc"]
 [ext_resource type="PackedScene" uid="uid://bvvfecxmohkp3" path="res://UI/card.tscn" id="2_7sf8c"]
@@ -8,6 +8,10 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_nko5t"]
 atlas = ExtResource("3_g5eb6")
 region = Rect2(224, 112, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_suths"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="GameSceneFramework" type="Node2D"]
 script = ExtResource("1_14ofc")
@@ -26,6 +30,11 @@ follow_viewport_enabled = true
 [node name="Caret" type="Sprite2D" parent="GameMap"]
 z_index = 100
 texture = SubResource("AtlasTexture_nko5t")
+
+[node name="debugtxt" type="Label" parent="GameMap/Caret"]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_suths")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(256, 256)
