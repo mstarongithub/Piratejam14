@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://3s6rq3dyivja"]
+
+[sub_resource type="Shader" id="Shader_ky3h3"]
+code = "shader_type canvas_item;
+render_mode blend_mix, unshaded;
+
+void fragment() {
+	bool X = mod(floor(COLOR.r * 256.0), 2.0) > 0.5;
+	bool Y = mod(floor(COLOR.g * 256.0), 2.0) > 0.5;
+	bool A = (X && Y) || (!X && !Y);
+	COLOR.rgb = vec3(0.0);
+	COLOR.a = A?0.5:0.0;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jihqb"]
+shader = SubResource("Shader_ky3h3")
+
+[node name="UndiscoveredFog" type="Polygon2D"]
+z_index = 10
+material = SubResource("ShaderMaterial_jihqb")
+polygon = PackedVector2Array(0, 0, 256, 0, 256, 256, 0, 256)
+vertex_colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1)

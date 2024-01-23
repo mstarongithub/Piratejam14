@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ce333j24hd465"]
+[gd_scene load_steps=10 format=3 uid="uid://ce333j24hd465"]
 
 [ext_resource type="TileSet" uid="uid://dd33gq2ur0d3" path="res://MedievalTileSet.tres" id="1_ffqxp"]
 [ext_resource type="Script" path="res://TowerDefence/TileMap.gd" id="2_5hw8l"]
+[ext_resource type="PackedScene" uid="uid://3s6rq3dyivja" path="res://templates/undiscovered_fog.tscn" id="3_2xu4v"]
 [ext_resource type="PackedScene" uid="uid://ciw8nt3udf54m" path="res://TowerDefence/Tower.tscn" id="3_7ngki"]
 [ext_resource type="Texture2D" uid="uid://cjhqeuae4ujwl" path="res://Assets/RTS Medieval (Pixel)/tilemap_packed.png" id="4_xrke4"]
 [ext_resource type="PackedScene" uid="uid://dwi8g8brrqs2g" path="res://TowerDefence/Enemy.tscn" id="5_7i2jt"]
@@ -32,7 +33,7 @@ layer_2/name = "Buildings"
 layer_2/tile_data = PackedInt32Array(65544, 458752, 4, 458765, 458752, 4, 655370, 327680, 4, 458755, 327680, 4, 131075, 393216, 4, 720900, 393216, 4, 851976, 327680, 4, 589825, 262144, 4, 851970, 262144, 4, 589836, 262144, 4, 196617, 262144, 4, 131072, 262144, 4, 65549, 655360, 4, 720906, 655360, 3, 393218, 655360, 3, 458754, 589824, 6, 655371, 393216, 6, 262152, 262144, 6, 720899, 458752, 7, 458762, 655360, 6, 524291, 655360, 6, 786444, 524288, 6, 131074, 524288, 6, 262155, 655360, 8, 262156, 655360, 8, 262157, 589824, 8, 131081, 589824, 8, 196621, 393216, 5, 983053, 393216, 4, 983045, 327680, 4, 131087, 655360, 4, 393221, 0, 65536, 458757, 0, 65536, 393222, 0, 131079, 458758, 0, 131080, 393223, 65536, 131079, 458759, 65536, 131080, 589831, 393216, 4, 196616, 327680, 6, 851974, 589824, 3, 196610, 589824, 3, 589835, 589824, 3, 851981, 589824, 3)
 script = ExtResource("2_5hw8l")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="UndiscoveredFog" parent="TileMap" instance=ExtResource("3_2xu4v")]
 
 [node name="Tower" parent="." instance=ExtResource("3_7ngki")]
 z_index = 1

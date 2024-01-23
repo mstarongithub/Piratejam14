@@ -1,5 +1,6 @@
 extends TileMap
 
+@onready var undiscovered_fog = get_node("UndiscoveredFog")
 var costs = {}
 var dirty = true
 

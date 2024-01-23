@@ -14,3 +14,6 @@ func load_GUI_scene(scene: PackedScene):
 
 func _ready():
 	load_game_scene(load("res://TowerDefence/Starton.tscn"))
+	for c in $GameMap.get_children():
+		if c.find_child("TileMap"):
+			c.find_child("TileMap").undiscovered_fog.visible = false

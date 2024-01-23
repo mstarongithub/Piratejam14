@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://ciw8nt3udf54m"]
+[gd_scene load_steps=7 format=3 uid="uid://ciw8nt3udf54m"]
 
 [ext_resource type="Script" path="res://TowerDefence/Tower.gd" id="1_43ys4"]
+[ext_resource type="Texture2D" uid="uid://cjhqeuae4ujwl" path="res://Assets/RTS Medieval (Pixel)/tilemap_packed.png" id="1_r0sr6"]
 [ext_resource type="Resource" uid="uid://6mvshprqeyep" path="res://TowerDefence/Towers/BlueRayTower.tres" id="3_ml4bv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_e7r7i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3je55"]
+atlas = ExtResource("1_r0sr6")
+region = Rect2(48, 112, 16, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p56d3"]
 radius = 70.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ib5e"]
 radius = 9.21954
 
 [node name="Tower" type="Sprite2D"]
+texture = SubResource("AtlasTexture_3je55")
 centered = false
 offset = Vector2(-8, -32)
 script = ExtResource("1_43ys4")
@@ -22,7 +28,7 @@ input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -10)
-shape = SubResource("CircleShape2D_e7r7i")
+shape = SubResource("CircleShape2D_p56d3")
 debug_color = Color(0, 0.6, 0.701961, 0.0784314)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
