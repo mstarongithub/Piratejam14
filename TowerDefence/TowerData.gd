@@ -32,6 +32,11 @@ signal updated
 		sprite = new
 		updated.emit()
 
+@export var destroyed_sprite: Texture2D:
+	set(new):
+		destroyed_sprite = new
+		updated.emit()
+
 @export var base_attack := 20:
 	set(new):
 		base_attack = new

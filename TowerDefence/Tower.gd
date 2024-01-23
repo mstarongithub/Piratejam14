@@ -120,6 +120,8 @@ func deal_damage(dmg: int) -> void:
 func _on_death() -> void:
 	died.emit()
 	is_dead = true
+	texture = config.destroyed_sprite
+	offset = Vector2(-8, -20)
 	LiveRunData.remove_tower(self)
 	$StaticBody2D/CollisionShape2D.disabled = true
 

@@ -1,36 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://ce333j24hd465"]
+[gd_scene load_steps=9 format=3 uid="uid://ce333j24hd465"]
 
 [ext_resource type="TileSet" uid="uid://dd33gq2ur0d3" path="res://MedievalTileSet.tres" id="1_ffqxp"]
 [ext_resource type="Script" path="res://TowerDefence/TileMap.gd" id="2_5hw8l"]
 [ext_resource type="PackedScene" uid="uid://ciw8nt3udf54m" path="res://TowerDefence/Tower.tscn" id="3_7ngki"]
-[ext_resource type="Script" path="res://TowerDefence/TowerData.gd" id="4_a8yll"]
-[ext_resource type="PackedScene" uid="uid://dmqqmwxioy3qo" path="res://TowerDefence/Projectiles/LineOfBlue.tscn" id="4_bdcbe"]
+[ext_resource type="Texture2D" uid="uid://cjhqeuae4ujwl" path="res://Assets/RTS Medieval (Pixel)/tilemap_packed.png" id="4_xrke4"]
 [ext_resource type="PackedScene" uid="uid://dwi8g8brrqs2g" path="res://TowerDefence/Enemy.tscn" id="5_7i2jt"]
 [ext_resource type="Script" path="res://TowerDefence/EnemyData.gd" id="6_77o8x"]
 
-[sub_resource type="Resource" id="Resource_u62wi"]
-script = ExtResource("4_a8yll")
-attack_speed = 0.5
-base_health = 30
-projectile = ExtResource("4_bdcbe")
-attack_range = 70
-base_attack = 20
-
-[sub_resource type="Resource" id="Resource_41nht"]
-script = ExtResource("4_a8yll")
-attack_speed = 0.5
-base_health = 30
-projectile = ExtResource("4_bdcbe")
-attack_range = 70
-base_attack = 20
-
-[sub_resource type="Resource" id="Resource_ahxpc"]
-script = ExtResource("4_a8yll")
-attack_speed = 0.5
-base_health = 30
-projectile = ExtResource("4_bdcbe")
-attack_range = 70
-base_attack = 20
+[sub_resource type="AtlasTexture" id="AtlasTexture_3je55"]
+atlas = ExtResource("4_xrke4")
+region = Rect2(48, 112, 16, 32)
 
 [sub_resource type="Resource" id="Resource_61eca"]
 script = ExtResource("6_77o8x")
@@ -58,16 +37,16 @@ script = ExtResource("2_5hw8l")
 [node name="Tower" parent="." instance=ExtResource("3_7ngki")]
 z_index = 1
 position = Vector2(104, 112)
-config = SubResource("Resource_u62wi")
+texture = SubResource("AtlasTexture_3je55")
 snap_to_tilemap = false
 
 [node name="Tower2" parent="." instance=ExtResource("3_7ngki")]
 position = Vector2(152, 136)
-config = SubResource("Resource_41nht")
+texture = SubResource("AtlasTexture_3je55")
 
 [node name="Tower3" parent="." instance=ExtResource("3_7ngki")]
 position = Vector2(72, 152)
-config = SubResource("Resource_ahxpc")
+texture = SubResource("AtlasTexture_3je55")
 
 [node name="Enemy" parent="." instance=ExtResource("5_7i2jt")]
 position = Vector2(200, 40)
