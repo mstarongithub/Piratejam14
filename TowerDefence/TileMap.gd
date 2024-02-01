@@ -17,10 +17,10 @@ func _process(_delta):
 			var region := NavigationServer2D.region_create()
 			var polygon := NavigationPolygon.new()
 			polygon.vertices = PackedVector2Array([
-				Vector2(x,			y),
-				Vector2(x + 16.0,	y),
-				Vector2(x + 16.0,	y + 16.0),
-				Vector2(x, 			y + 16.0)])
+				Vector2(x,			y) + global_position,
+				Vector2(x + 16.0,	y) + global_position,
+				Vector2(x + 16.0,	y + 16.0) + global_position,
+				Vector2(x, 			y + 16.0) + global_position])
 			polygon.add_polygon([0, 1, 2, 3])
 			NavigationServer2D.region_set_map(region, map)
 			NavigationServer2D.region_set_navigation_polygon(region, polygon)
@@ -70,4 +70,3 @@ func try_place_road(pos: Vector2i):
 		costs[pos].cost = 20.0
 		var cost_data = costs[pos]
 		NavigationServer2D.region_set_travel_cost(cost_data.RID, cost_data.cost)
-

@@ -36,7 +36,8 @@ func _unhandled_input(event):
 			print(&"clicked on %s" % global_to_tile(event.global_position))
 			for c in gamearea.get_children():
 				if c.name != &"Caret":
-					c.get_node("TileMap").try_place_road(global_to_tile(event.global_position))
+					for sec in c.get_children():
+						sec.get_node("TileMap").try_place_road(global_to_tile(event.global_position))
 	if  event is InputEventMouseButton and\
 		event.button_index == MOUSE_BUTTON_RIGHT:
 			if event.is_pressed():
@@ -49,10 +50,11 @@ func _unhandled_input(event):
 		caret.position = global_to_tile(event.global_position) * 16.0 + caret.texture.region.size / 2.0
 		for c in gamearea.get_children():
 			if c.name !="Caret":
-				if c.is_node_ready() and global_to_tile(event.global_position) in c.get_node("TileMap").costs:
-					caret.get_node("debugtxt").text = &"travel cost: %s" % c.get_node("TileMap").costs[global_to_tile(event.global_position)].cost
-				else:
-					caret.get_node("debugtxt").text = &""
+				for sec in c.get_children():
+					if sec.is_node_ready() and sec.get_node("TileMap").is_node_ready() and global_to_tile(event.global_position) in sec.get_node("TileMap").costs:
+						caret.get_node("debugtxt").text = &"travel cost: %s" % sec.get_node("TileMap").costs[global_to_tile(event.global_position)].cost
+					else:
+						caret.get_node("debugtxt").text = &""
 	if  event is InputEventMouseButton and\
 		event.is_action("zoom_in"):
 			var s = gamearea.scale
@@ -62,4 +64,5 @@ func _unhandled_input(event):
 		event.is_action("zoom_out"):
 			var s = gamearea.scale
 			gamearea.scale -= Vector2(0.1, 0.1)
+			gamearea.scale = clamp(gamearea.scale, Vector2(0.5, 0.5), Vector2(INF, INF))
 			camera.position = camera.position * gamearea.scale / s

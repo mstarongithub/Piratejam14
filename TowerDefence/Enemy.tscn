@@ -42,9 +42,12 @@ path_metadata_flags = 0
 debug_enabled = true
 
 [node name="debuginfo" type="Label" parent="."]
+z_index = 200
 offset_left = 14.0
 offset_top = -11.0
 offset_right = 54.0
 offset_bottom = 12.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
 
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

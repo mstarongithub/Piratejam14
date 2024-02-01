@@ -34,6 +34,7 @@ layer_2/tile_data = PackedInt32Array(65544, 458752, 4, 458765, 458752, 4, 655370
 script = ExtResource("2_5hw8l")
 
 [node name="UndiscoveredFog" parent="TileMap" instance=ExtResource("3_2xu4v")]
+visible = false
 
 [node name="Tower" parent="." instance=ExtResource("3_7ngki")]
 z_index = 1

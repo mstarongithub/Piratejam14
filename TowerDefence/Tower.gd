@@ -9,14 +9,15 @@ signal died
 @export var config: TowerData:
 	set(new):
 		config = new
-		_reload_from_data()
+		if is_node_ready():
+			_reload_from_data()
 ## Custom behaviour overwrites targeting and related actions.
 ## Does not overwrite health handling
 @export var custom_behaviour: CustomTowerBehaviour
 @export var snap_to_tilemap := true:
 	set(new):
 		snap_to_tilemap = new
-		print("snap: ", new)
+		#print("snap: ", new)
 
 @onready var _detection_shape: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var _detection_area: Area2D = $Area2D
@@ -25,7 +26,6 @@ signal died
 var _health: int = 100
 var is_dead := false
 var _can_attack := true
-var _ready_game_done := false
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -51,15 +51,15 @@ func _process_game(_delta: float) -> void:
 
 func _ready_engine() -> void:
 	_detection_shape.shape = _detection_shape.shape.duplicate()
+	_reload_from_data()
 	
 func _ready_game() -> void:
 	_detection_shape.shape = _detection_shape.shape.duplicate()
 	LiveRunData.register_tower(self)
-	_ready_game_done = true
 	_reload_from_data()
 
 func _reload_from_data() -> void:
-	if not config or not Engine.is_editor_hint() and not _ready_game_done:
+	if not config or not Engine.is_editor_hint():
 		return
 	if not config.updated.is_connected(_reload_from_data):
 		config.updated.connect(_reload_from_data)
